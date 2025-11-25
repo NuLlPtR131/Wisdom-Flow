@@ -1,0 +1,41 @@
+.image {
+  width: 100px !important;
+  object-fit: contain;
+}
+
+.imagePreview {
+  max-width: 50vw;
+  max-height: 50vh;
+  object-fit: contain;
+}
+
+.content {
+  flex: 1;
+  .chunkText;
+}
+
+.contentEllipsis {
+  .multipleLineEllipsis(3);
+}
+
+.contentText {
+  word-break: break-all !important;
+}
+
+.keywords {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chunkCard {
+  width: 100%;
+}
+
+.cardSelected {
+  background-color: @selectedBackgroundColor;
+}
+.cardSelectedDark {
+  background-color: #ffffff2f;
+}

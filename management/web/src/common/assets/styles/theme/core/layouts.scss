@@ -1,0 +1,36 @@
+// Layout 相关
+
+.app-wrapper {
+  // 侧边栏
+  .sidebar-container {
+    background-color: var(--v3-sidebar-bg-color, #ffffff);
+    .el-menu {
+      background-color: transparent;
+      .el-menu-item {
+        background-color: transparent;
+        color: var(--v3-sidebar-text-color, #333333);
+        &.is-active,
+        &:hover {
+          background-color: var(--v3-sidebar-hover-bg-color, #f5f7fa);
+          color: var(--v3-sidebar-active-text-color, #1890ff);
+        }
+      }
+    }
+    .el-sub-menu__title {
+      background-color: transparent;
+      color: var(--v3-sidebar-text-color, #333333);
+    }
+    .el-sub-menu {
+      &.is-active {
+        > .el-sub-menu__title {
+          color: var(--v3-sidebar-active-text-color, #1890ff);
+        }
+      }
+    }
+  }
+}
+
+// 右侧设置面板
+.handle-button {
+  background-color: lighten($theme-bg-color, 20%) !important;
+}

@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 224 71% 4%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    --primary: 260 70% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --accent: 260 70% 95%;
+    --accent-foreground: 260 70% 60%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 260 70% 80%;
+
+    --radius: 0.625rem;
+
+    --background-inverse-standard: rgba(240, 235, 255, 0.15);
+    --background-inverse-standard-foreground: rgb(92, 81, 81);
+    --colors-background-inverse-standard: rgba(44, 26, 65, 0.1);
+    --colors-background-inverse-strong: rgba(18, 10, 25, 0.8);
+    --colors-background-inverse-weak: rgba(23, 16, 35, 0.1);
+    --colors-background-neutral-standard: white;
+    --colors-background-neutral-strong: rgba(240, 235, 255, 1);
+    --colors-background-functional-solid-danger: rgba(222, 17, 53, 1);
+    --colors-background-core-strong: rgba(168, 85, 247, 1);
+    --colors-background-sentiment-solid-primary: rgba(168, 85, 247, 1);
+
+    --button-blue-text: rgb(168, 85, 247);
+
+    --colors-outline-sentiment-primary: rgba(168, 85, 247, 1);
+    --colors-outline-neutral-strong: rgba(112, 107, 107, 0.15);
+    --colors-outline-neutral-standard: rgba(53, 51, 65, 0.1);
+
+    --colors-text-core-standard: rgba(186, 104, 200, 1);
+    --colors-text-neutral-strong: rgba(17, 16, 23, 1);
+    --colors-text-neutral-standard: rgba(152, 148, 176, 1);
+    --colors-text-neutral-weak: rgba(170, 160, 197, 1);
+    --colors-text-functional-danger: rgba(255, 81, 81, 1);
+    --colors-text-inverse-strong: rgba(255, 255, 255, 1);
+    --colors-text-persist-light: rgba(255, 255, 255, 1);
+    --colors-text-inverse-weak: rgba(184, 181, 203, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220.9 39.3% 11%;
+    --sidebar-primary: 168 85 247;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 220.9 39.3% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 168 85 247;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 260 70% 20%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 260 70% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 260 70% 30%;
+
+    --radius: 0.625rem;
+
+    --background-inverse-standard: rgba(240, 235, 255, 0.15);
+    --background-inverse-standard-foreground: rgba(255, 255, 255, 1);
+
+    --background-inverse-weak: rgba(194, 184, 203, 0.15);
+    --background-inverse-weak-foreground: rgba(255, 255, 255, 1);
+
+    --background-core-standard: rgba(168, 85, 247, 1);
+    --background-core-standard-foreground: rgba(255, 255, 255, 1);
+
+    --background-inverse-strong: rgba(255, 255, 255, 0.15);
+    --background-inverse-strong-foreground: rgba(255, 255, 255, 1);
+
+    --background-core-weak: rgb(186, 104, 200);
+    --background-core-weak-foreground: rgba(255, 255, 255, 1);
+
+    --colors-background-core-standard: rgba(168, 85, 247, 1);
+    --colors-background-core-strong: rgba(139, 92, 246, 1);
+    --colors-background-core-weak: rgba(186, 104, 200, 1);
+    --colors-background-functional-solid-danger: rgba(255, 57, 92, 1);
+    --colors-background-functional-solid-notice: rgba(255, 208, 94, 1);
+    --colors-background-functional-solid-positive: rgba(74, 225, 145, 1);
+    --colors-background-functional-transparent-danger: rgba(234, 50, 83, 0.2);
+    --colors-background-functional-transparent-notice: rgba(248, 208, 111, 0.5);
+    --colors-background-functional-transparent-positive: rgba(
+      65, 203, 130, 0.5
+    );
+    --colors-background-inverse-standard: rgba(240, 235, 255, 0.15);
+    --colors-background-inverse-strong: rgba(255, 255, 255, 0.8);
+    --colors-background-inverse-weak: rgba(194, 184, 203, 0.15);
+    --colors-background-neutral-standard: rgba(11, 10, 18, 1);
+    --colors-background-neutral-strong: rgba(29, 26, 44, 1);
+    --colors-background-neutral-weak: rgba(17, 16, 23, 1);
+    --colors-background-sentiment-solid-primary: rgba(168, 85, 247, 1);
+
+    --colors-outline-sentiment-primary: rgba(168, 85, 247, 1);
+    --colors-outline-neutral-strong: rgba(255, 255, 255, 0.15);
+    --colors-outline-neutral-standard: rgba(240, 235, 255, 0.1);
+
+    --colors-text-core-standard: rgba(168, 85, 247, 1);
+    --colors-text-neutral-strong: rgba(255, 255, 255, 1);
+    --colors-text-neutral-standard: rgba(240, 235, 255, 1);
+    --colors-text-neutral-weak: rgba(170, 160, 197, 1);
+    --colors-text-functional-danger: rgba(255, 81, 81, 1);
+    --colors-text-inverse-strong: rgba(17, 16, 23, 1);
+    --colors-text-persist-light: rgba(255, 255, 255, 1);
+    --colors-text-inverse-weak: rgba(84, 80, 106, 1);
+
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 168 85 247;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 70% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 216 34% 17%;
+    --sidebar-ring: 168 85 247;
+  }
+}
+
+@layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-colors-background-neutral-standard text-foreground font-sans antialiased;
+      font-feature-settings:
+        'rlig' 1,
+        'calt' 1;
+    }
+
+  /* https://tailwindcss.com/docs/preflight */
+
+  h1 {
+    @apply text-3xl font-bold tracking-tight;
+  }
+  h2 {
+    @apply text-2xl font-bold tracking-tight;
+  }
+  h3 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply text-lg font-medium tracking-tight;
+  }
+
+  img,
+  video {
+    max-width: none;
+  }
+}

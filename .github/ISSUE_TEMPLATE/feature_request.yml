@@ -1,0 +1,15 @@
+name: "💞 Feature request"
+description: Propose a feature request for RAGFlow-Plus.
+title: "[Feature Request]: "
+labels: ["💞 feature"]
+body:
+- type: markdown
+  attributes:
+    value: |
+      请尽可能详细地描述你的需求。
+- type: textarea
+  attributes:
+    label: 描述你想要的新功能
+    description: 尽可能结合业务场景，清晰地描述
+  validations:
+    required: true

@@ -1,0 +1,218 @@
+.tag {
+  height: 40px;
+  padding: 0 30px;
+  margin: 0 5px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.checked {
+  color: #1677ff;
+  border-color: #1677ff;
+}
+
+.logoWrapper {
+  min-width: 200px;
+}
+
+.appIcon {
+  vertical-align: middle;
+  max-width: 36px;
+}
+
+.appName {
+  vertical-align: middle;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.radioGroup {
+  & label {
+    height: 40px;
+    line-height: 40px;
+    border: 0 !important;
+    font-weight: @fontWeight700;
+    color: rgba(29, 25, 41, 1);
+    &::before {
+      display: none !important;
+    }
+  }
+  
+  // 移除未选中状态的背景色，改为透明
+  :global(.ant-radio-button-wrapper) {
+    background-color: transparent !important;
+    // 移除过渡效果，确保立即变色
+    transition: none !important;
+  }
+  
+  // 移除hover和active状态的默认背景色
+  :global(.ant-radio-button-wrapper:hover),
+  :global(.ant-radio-button-wrapper:active) {
+    background-color: transparent !important;
+  }
+  
+  // 聊天目录选中状态的背景色 - 蓝色
+  :global(.ant-radio-button-wrapper-checked:nth-child(1)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(1):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(1):active) {
+    background-color: #1677ff !important;
+  }
+  
+  // 知识库目录选中状态的背景色 - 绿色
+  :global(.ant-radio-button-wrapper-checked:nth-child(2)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(2):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(2):active) {
+    background-color: #52c41a !important;
+  }
+  
+  // 文档撰写目录选中状态的背景色 - 紫色
+  :global(.ant-radio-button-wrapper-checked:nth-child(3)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(3):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(3):active) {
+    background-color: #722ed1 !important;
+  }
+  
+  // 搜索目录选中状态的背景色 - 橙色
+  :global(.ant-radio-button-wrapper-checked:nth-child(4)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(4):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(4):active) {
+    background-color: #fa8c16 !important;
+  }
+  :global(.ant-radio-button-wrapper-checked) {
+    border-radius: 6px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global(.ant-radio-button-wrapper-checked.dark) {
+    border-radius: 0px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global(.ant-radio-button-wrapper-checked.dark.first) {
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global(.ant-radio-button-wrapper-checked.dark.last) {
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global {
+    .ant-radio-button-wrapper:nth-child(3) {
+      // margin-right: 500px;
+    }
+    .ant-radio-button-wrapper:nth-child(1) {
+      // margin-left: 500px;
+    }
+  }
+}
+
+.radioGroupDark {
+  & label {
+    height: 40px;
+    line-height: 40px;
+    border: 0 !important;
+    font-weight: @fontWeight700;
+    color: rgba(29, 25, 41, 1);
+    &::before {
+      display: none !important;
+    }
+  }
+  
+  // 移除未选中状态的背景色，改为透明
+  :global(.ant-radio-button-wrapper) {
+    background-color: transparent !important;
+    // 移除过渡效果，确保立即变色
+    transition: none !important;
+  }
+  
+  // 移除hover和active状态的默认背景色
+  :global(.ant-radio-button-wrapper:hover),
+  :global(.ant-radio-button-wrapper:active) {
+    background-color: transparent !important;
+  }
+  
+  // 聊天目录选中状态的背景色 - 蓝色
+  :global(.ant-radio-button-wrapper-checked:nth-child(1)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(1):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(1):active) {
+    background-color: #1677ff !important;
+  }
+  
+  // 知识库目录选中状态的背景色 - 绿色
+  :global(.ant-radio-button-wrapper-checked:nth-child(2)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(2):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(2):active) {
+    background-color: #52c41a !important;
+  }
+  
+  // 文档撰写目录选中状态的背景色 - 紫色
+  :global(.ant-radio-button-wrapper-checked:nth-child(3)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(3):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(3):active) {
+    background-color: #722ed1 !important;
+  }
+  
+  // 搜索目录选中状态的背景色 - 橙色
+  :global(.ant-radio-button-wrapper-checked:nth-child(4)),
+  :global(.ant-radio-button-wrapper-checked:nth-child(4):hover),
+  :global(.ant-radio-button-wrapper-checked:nth-child(4):active) {
+    background-color: #fa8c16 !important;
+  }
+  :global(.ant-radio-button-wrapper-checked) {
+    border-radius: 6px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global(.ant-radio-button-wrapper-checked.dark) {
+    border-radius: 0px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global(.ant-radio-button-wrapper-checked.dark.first) {
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global(.ant-radio-button-wrapper-checked.dark.last) {
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    & a {
+      color: white;
+    }
+  }
+  :global {
+    .ant-radio-button-wrapper:nth-child(3) {
+      // 移除过大的右边距，让导航项靠在一起
+      margin-right: 0;
+    }
+    .ant-radio-button-wrapper:nth-child(1) {
+      // 移除过大的左边距，让导航项靠在一起
+      margin-left: 0;
+    }
+  }
+}
+
+.ant-radio-button-wrapper-checked {
+  border-radius: 6px !important;
+}
+.radioButtonIcon {
+  vertical-align: middle;
+  max-width: 15px;
+  max-height: 15px;
+}

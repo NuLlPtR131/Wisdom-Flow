@@ -1,0 +1,129 @@
+.templateHeader {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 30px 0;
+  width: 100%;
+}
+
+.templateItemText {
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+.dialogContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 16px;
+
+  .messageList {
+    flex: 1;
+    overflow: auto;
+    margin-bottom: 16px;
+  }
+
+  .inputArea {
+    border-radius: 18px;
+    padding: 12px 16px;
+    resize: none;
+  }
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+// 自定义淡紫色按钮样式，覆盖Ant Design的默认蓝色
+:global(.ant-btn-primary) {
+  background-color: #9370DB !important;
+  border-color: #9370DB !important;
+  
+  &:hover,
+  &:focus {
+    background-color: #8a60d8 !important;
+    border-color: #8a60d8 !important;
+  }
+  
+  &:active {
+    background-color: #7e4dd0 !important;
+    border-color: #7e4dd0 !important;
+  }
+  
+  &.ant-btn-loading::before {
+    background: rgba(147, 112, 219, 0.7) !important;
+  }
+}
+
+// 覆盖Radix UI按钮的primary样式
+:global(.bg-primary) {
+  background-color: #9370DB !important;
+}
+
+:global(.text-primary) {
+  color: #9370DB !important;
+}
+
+// 确保在文档撰写页面中所有Ant Design的主要颜色都使用淡紫色
+:global {
+  // 链接颜色
+  .ant-typography a {
+    color: #9370DB !important;
+  }
+  
+  // 修改链接颜色为淡紫色
+  a {
+    color: #9370DB !important;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #8B5CF6 !important;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: #7E22CE !important;
+  }
+  
+  // 输入框聚焦颜色
+  .ant-input:focus,
+  .ant-input:hover,
+  .ant-input-focused {
+    border-color: #9370DB !important;
+    box-shadow: 0 0 0 2px rgba(147, 112, 219, 0.2) !important;
+  }
+  
+  // 选择框聚焦颜色
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border-color: #9370DB !important;
+    box-shadow: 0 0 0 2px rgba(147, 112, 219, 0.2) !important;
+  }
+  
+  // 单选框和复选框选中颜色
+  .ant-radio-checked .ant-radio-inner {
+    border-color: #9370DB !important;
+    background-color: #9370DB !important;
+  }
+  
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #9370DB !important;
+    border-color: #9370DB !important;
+  }
+  
+  // 滑动条颜色
+  .ant-slider-track {
+    background-color: #9370DB !important;
+  }
+  
+  .ant-slider-handle {
+    border-color: #9370DB !important;
+  }
+  
+  .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+    border-color: #9370DB !important;
+  }
+}

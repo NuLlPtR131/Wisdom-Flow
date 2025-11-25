@@ -1,0 +1,15 @@
+name: "🙋‍♀️ Question"
+description: Ask questions on RAGFlow-Plus
+title: "[Question]: "
+labels: ["🙋‍♀️ question"]
+body:
+- type: markdown
+  attributes:
+    value: |
+      尽管问，不限语言。(All language is welcomed)
+- type: textarea
+  attributes:
+    label: 描述你的问题
+    description: 尽可能清晰地描述，如果是bug，建议附上详细步骤和日志。
+  validations:
+    required: true

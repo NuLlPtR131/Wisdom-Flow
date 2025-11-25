@@ -1,0 +1,132 @@
+include:
+  - ./docker-compose-base.yml
+
+services:
+  ragflow:
+    depends_on:
+      mysql:
+        condition: service_healthy
+    image: ${RAGFLOW_IMAGE}
+    container_name: ragflowplus-server
+    ports:
+      - ${SVR_HTTP_PORT}:9380
+      - 80:80
+      - 443:443
+    volumes:
+      - ./ragflow-logs:/ragflow/logs
+      - ./nginx/ragflow.conf:/etc/nginx/conf.d/ragflow.conf
+      - ./nginx/proxy.conf:/etc/nginx/proxy.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    env_file: .env
+    environment:
+      - TZ=${TIMEZONE}
+      - HF_ENDPOINT=${HF_ENDPOINT}
+      - MACOS=${MACOS}
+    networks:
+      - ragflow
+    restart: on-failure
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # 后台信息管理系统前端
+  management-frontend:
+    container_name: ragflowplus-management-frontend
+    image: ${RAGFLOWPLUS_MANAGEMENT_WEB_IMAGE}
+    volumes:
+      - ./nginx/management_nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8888:80"
+    depends_on:
+      - management-backend
+    env_file: .env
+    environment:
+      - API_BASE_URL=/api 
+    networks:
+      - ragflow
+    restart: on-failure
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      
+  # 后台信息管理系统后端
+  management-backend:
+    container_name: ragflowplus-management-backend
+    image: ${RAGFLOWPLUS_MANAGEMENT_SERVER_IMAGE}
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./ragflow-plus-logs:/app/logs
+      - ./magic-pdf-gpu.json:/root/magic-pdf.json
+    depends_on: 
+      mysql:
+        condition: service_healthy
+      es01:
+        condition: service_healthy 
+    env_file: .env
+    environment:
+      - FLASK_ENV=development
+      - CORS_ALLOWED_ORIGINS=http://management-frontend
+      - MANAGEMENT_ADMIN_USERNAME=${MANAGEMENT_ADMIN_USERNAME:-admin}
+      - MANAGEMENT_ADMIN_PASSWORD=${MANAGEMENT_ADMIN_PASSWORD:-12345678}
+      - MANAGEMENT_JWT_SECRET=${MANAGEMENT_JWT_SECRET:-12345678}
+    networks:
+      - ragflow
+    restart: on-failure
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              device_ids: ["0"]  # 指定使用第一块GPU
+
+
+  # # vllm 嵌入模型
+  # vllm-bge:
+  #   container_name: vllm-bge
+  #   image: vllm/vllm-openai:latest
+  #   ipc: host
+  #   volumes:
+  #     - ./models/bge-m3:/models
+  #   command: [
+  #     "--model", "/models",
+  #     "--served-model-name", "bge-m3",
+  #     "--dtype", "float16",
+  #     "--gpu-memory-utilization", "0.9",
+  #   ]
+  #   ports:
+  #     - "8000:8000"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             capabilities: [gpu]
+  #   networks:
+  #     - ragflow
+
+  # # vllm 语言模型
+  # vllm-deepseek:
+  #   container_name: vllm-deepseek
+  #   image: vllm/vllm-openai:latest
+  #   ipc: host
+  #   volumes:
+  #     - ./models/DeepSeek-R1-1.5B:/models
+  #   command: [
+  #     "--model", "/models",
+  #     "--served-model-name", "deepseek-r1",
+  #     "--dtype", "float16",
+  #     "--tensor-parallel-size", "1",
+  #     "--max-model-len", "4096"
+  #   ]
+  #   ports:
+  #     - "8001:8000"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             capabilities: [gpu]
+  #   networks:
+  #     - ragflow
