@@ -1,58 +1,191 @@
 <div align="center">
-  <img src="docs/images/ragflow-plus.png" width="400" alt="Ragflow-Plus">
+  <img src="management/web/src/common/assets/images/layouts/logo-text-2.png" width="400" alt="WisdomFlow">
 </div>
 
-<div align="center">
-  <a href="https://github.com/zstar1003/ragflow-plus/stargazers"><img src="https://img.shields.io/github/stars/zstar1003/ragflow-plus?style=social" alt="stars"></a>
-  <img src="https://img.shields.io/badge/version-0.5.0-blue" alt="version">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL3.0-green" alt="license"></a>
-  <a href="https://hub.docker.com/r/zstar1003/ragflowplus/tags"><img src="https://img.shields.io/docker/pulls/zstar1003/ragflowplus" alt="docker pulls"></a>
 
-  <h4>
-    <a href="README.md">🇨🇳 Chinese</a>
-    <span> | </span>
-    <a href="README_EN.md">🇬🇧 English</a>
-  </h4>
-</div>
-
----
 
 ## 🌟 Introduction
 
-**Ragflow-Plus** is a secondary development project based on **Ragflow**, aiming to solve some issues in real-world applications.  
-Key features include:
+**WisdomFlow**  is an intelligent knowledge management and question-answering system based on RAG (Retrieval-Augmented Generation) technology. It focuses on solving practical needs in knowledge management, document parsing, and intelligent question-answering.
 
-- **Management Mode**  
-  An additional admin panel to support user management, team management, configuration management, file management, and knowledge base management.
-- **Permission Reclaiming**  
-  The frontend system limits user permissions for a simplified interface.
-- **Enhanced Parsing**  
-  Replaces the DeepDoc algorithm with MinerU for better document parsing results, including image parsing.
-- **Text-Image Output**  
-  Supports displaying related images linked to referenced text blocks in model responses.
-- **Document Writing Mode**  
-  Offers a brand new document-mode interactive experience.
+WisdomFlow provides a complete knowledge management solution, including document parsing, knowledge base construction, intelligent question-answering, user management, and other core functions. It is particularly suitable for enterprises, universities, and other teams to build internal knowledge bases and intelligent question-answering systems.
 
-**In short:** Ragflow-Plus is the “industry-specific solution” of Ragflow for Chinese application scenarios.
+## 🎯 Core Features
 
-## 📥 Usage
+### 🔧 Powerful Admin Management System
+- **User Management**: Support user creation, permission configuration, and team management
+- **Knowledge Base Management**: Flexible creation, editing, and deletion of knowledge bases with batch operations
+- **File Management**: Centralized management of all uploaded documents with batch parsing and import
+- **System Configuration**: Flexible configuration of model parameters, parsing engines, storage settings, etc.
 
-Video demo & tutorial:  
+### 📄 Enhanced Document Parsing
+- **MinerU Parsing Engine**: Replaces traditional DeepDoc algorithm for more accurate document parsing
+- **Multi-format Support**: Supports PDF, Word, Excel, PPT, and other document formats
+- **Image Parsing**: Supports parsing and storage of images in documents
+- **Structure Preservation**: Maintains the original structure and formatting of documents
 
-[![Ragflow-Plus Introduction and User Guide](https://i0.hdslb.com/bfs/archive/f7d8da4a112431af523bfb64043fe81da7dad8ee.jpg@672w_378h_1c.avif)](https://www.bilibili.com/video/BV1UJLezaEEE)
+### 💬 Intelligent Question-Answering System
+- **RAG Technology**: Based on retrieval-augmented generation to ensure answer accuracy and traceability
+- **Text-Image Output**: Supports displaying related images linked to referenced text blocks in model responses
+- **Multi-model Support**: Compatible with multiple mainstream large language models
+- **Streaming Output**: Supports real-time streaming answer experience
 
-Project documentation: [xdxsb.top/ragflow-plus](https://xdxsb.top/ragflow-plus)
+### 📝 Document Writing Mode
+- **New Interactive Experience**: Provides document editing-like question-answering mode
+- **Context Management**: Supports segmented writing and management of long documents
+- **Format Control**: Supports basic text formatting control
 
-Quick start with Docker:
+### 🎨 User-Friendly Interface
+- **Permission Reclaiming**: Frontend system simplifies user interface, focusing on core functions
+- **Theme Support**: Supports multiple theme switching to meet different user preferences
+- **Responsive Design**: Adapts to devices with different screen sizes
+
+## 🏗️ System Architecture
+
+WisdomFlow adopts a modular architecture design with loosely coupled components for easy expansion and maintenance:
+
+```
+WisdomFlow/
+├── api/                 # Backend API services
+│   ├── apps/           # Application modules
+│   ├── db/             # Database management
+│   └── utils/          # Utility functions
+├── agentic_reasoning/  # Intelligent reasoning module
+├── graphrag/           # Graph RAG function module
+├── management/         # Admin background
+│   ├── server/         # Admin backend services
+│   └── web/            # Admin frontend
+├── rag/                # RAG core functions
+│   ├── app/            # Application core
+│   ├── llm/            # Large language model integration
+│   └── utils/          # RAG utility functions
+├── sdk/                # Python SDK
+└── web/                # Frontend application
+    ├── public/         # Static resources
+    └── src/            # Frontend source code
+```
+
+### Core Module Description
+
+#### 1. Frontend Application (web/)
+- Developed based on Vue.js and TypeScript
+- Provides user-friendly question-answering interface
+- Supports document writing mode
+- Responsive design, adapting to multiple devices
+
+#### 2. Backend API (api/)
+- RESTful API developed based on Flask
+- Handles user requests, document management, knowledge base operations, etc.
+- Provides interaction interface with frontend and admin background
+
+#### 3. Admin Background (management/)
+- Independent admin management system
+- Based on V3 Admin Vite framework
+- Supports user, team, knowledge base, file, and other management functions
+
+#### 4. RAG Core (rag/)
+- Implements core logic of retrieval-augmented generation
+- Integrates multiple document parsing engines
+- Knowledge base construction and retrieval algorithms
+- Interaction interface with large language models
+
+#### 5. Intelligent Reasoning (agentic_reasoning/)
+- Provides deep reasoning and research capabilities
+- Intelligent decision-making based on prompt engineering
+
+#### 6. Graph RAG (graphrag/)
+- Knowledge base representation based on graph structure
+- Entity relationship extraction and analysis
+- Graph retrieval and reasoning algorithms
+
+#### 7. SDK (sdk/)
+- Python SDK for easy developer integration
+- Provides interaction interface with WisdomFlow
+- Supports knowledge base management, document upload, question-answering calls, etc.
+
+## 📥 Quick Start
+
+### 1. Hardware Requirements
+
+- Memory: Minimum 16G, recommended 32G or more
+- GPU: Turing and later architectures, 6G VRAM or more
+- Disk space: 20G or more, SSD recommended
+
+### 2. Deployment Method
+
+Docker deployment is recommended for simplicity and speed:
+
 ```bash
+# Clone project code
+git clone https://github.com/zstar1003/ragflow-plus.git
+cd ragflow-plus
+
+# Start service
 docker compose -f docker/docker-compose.yml up -d
-````
+```
 
-## ❓ FAQ
+### 3. Access System
 
-* For common issues, check [FAQ](docs/question/README.md) or search the GitHub issues section.
-* If not resolved, try using [DeepWiki](https://deepwiki.com/zstar1003/ragflow-plus) or [zread](https://zread.ai/zstar1003/ragflow-plus) to interact with the AI assistant, which can solve most common problems.
-* If the problem persists, submit a GitHub issue — the AI assistant will respond automatically.
+- **Frontend Application**: http://localhost
+- **Admin Background**: http://localhost/admin
+- **API Address**: http://localhost/api/v1
+
+## 🔧 How to Use
+
+### 1. Create Knowledge Base
+
+Create a knowledge base through the admin background or API for storing and managing documents.
+
+### 2. Upload Documents
+
+Upload documents to be managed, and the system will automatically parse and store them in the knowledge base.
+
+### 3. Intelligent Question-Answering
+
+Ask questions in the frontend application, and the system will generate accurate answers based on the knowledge base content.
+
+### 4. Document Writing
+
+Use document writing mode for creating and managing long documents.
+
+## 📚 API Documentation
+
+WisdomFlow provides a complete API interface, supporting integration through SDK or direct API calls:
+
+### Python SDK
+
+```python
+from ragflow_sdk import RAGFlow
+
+# Initialize SDK
+api_key = "your-api-key"
+base_url = "http://localhost:9380"
+rag_object = RAGFlow(api_key=api_key, base_url=base_url)
+
+# Create knowledge base
+dataset = rag_object.create_dataset(name="my-knowledge-base")
+
+# Upload document
+rag_object.upload_document(dataset_id=dataset.id, file_path="document.pdf")
+```
+
+### OpenAI Compatible API
+
+```python
+from openai import OpenAI
+
+model = "deepseek-r1:1.5b"
+client = OpenAI(api_key="your-api-key", base_url=f"http://localhost/api/v1/chats_openai/{dialog_id}")
+
+completion = client.chat.completions.create(
+    model=model,
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "Who are you?"},
+    ],
+    stream=True
+)
+```
 
 ## 🛠️ How to Contribute
 
@@ -87,32 +220,3 @@ This project is based on the following open-source projects:
 * [v3-admin-vite](https://github.com/un-pany/v3-admin-vite)
 * [minerU](https://github.com/opendatalab/MinerU)
 
-Thanks to all contributors:
-
-<a href="https://github.com/zstar1003/ragflow-plus/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=zstar1003/ragflow-plus" />
-</a>
-
-## 📜 License & Usage Restrictions
-
-1. **AGPLv3 License**
-   Since the project contains third-party AGPLv3 code, it must comply with all AGPLv3 terms:
-
-   * Any **derivative works** (including modifications or combined code) must remain AGPLv3 licensed and open-sourced.
-   * If provided via **network services**, users have the right to obtain the corresponding source code.
-
-2. **Commercial Use**
-
-   * **Allowed**: AGPLv3 permits commercial use, including SaaS and enterprise deployments.
-   * **Unmodified Code**: Even without modifications, you must still comply with AGPLv3:
-
-     * Provide the complete source code (even if unchanged).
-     * If offered as a network service, allow users to download the source code (AGPLv3 Section 13).
-   * **No Closed-Source Commercial Use**: Closed-source commercial use (not releasing modified code) requires written permission from all copyright holders, including upstream AGPLv3 authors.
-
-3. **Disclaimer**
-   This project is provided without warranties. Users are responsible for compliance. For legal advice, consult a professional lawyer.
-
-## ✨ Star History
-
-![Stargazers over time](https://starchart.cc/zstar1003/ragflow-plus.svg)
