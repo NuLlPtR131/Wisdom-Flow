@@ -1,0 +1,30 @@
+# Wisdom-Flow 测试依赖包
+# 安装命令：pip install -r requirements.txt
+
+# 核心测试框架
+pytest>=7.4.0
+pytest-html>=4.1.0  # 生成 HTML 测试报告
+pytest-xdist>=3.5.0  # 并行测试
+pytest-timeout>=2.2.0  # 超时控制
+pytest-cov>=4.1.0  # 代码覆盖率
+
+# HTTP 请求库
+requests>=2.31.0
+urllib3>=2.0.0
+
+# SDK 依赖
+ragflow-sdk>=0.1.0  # Ragflow Python SDK
+openai>=1.0.0  # OpenAI SDK（用于兼容性测试）
+
+# 数据处理
+python-dotenv>=1.0.0  # 环境变量管理
+
+# 性能测试
+locust>=2.17.0  # 可选：用于更高级的性能测试
+
+# 日志和调试
+colorlog>=6.7.0  # 彩色日志输出
+
+# 工具库
+faker>=20.0.0  # 测试数据生成
+
